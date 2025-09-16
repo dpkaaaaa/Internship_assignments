@@ -1,0 +1,98 @@
+.nav {
+    background-color: rgb(252, 44, 7);
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    margin: 10px;
+    justify-content: space-between;
+}
+
+.first {
+    font-size: 20px;
+
+}
+
+.bar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.intro5 button {
+    padding: 7px 10px;
+    margin-left: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+}
+
+
+
+#menu-toggle {
+    display: none;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 26px;
+    background: white;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media (max-width:915px) {
+
+    .bar {
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+}
+
+@media (max-width:845px) {
+    .bar {
+        gap: 8px;
+    }
+
+    .intro5 input[type=text] {
+        width: 70px;
+    }
+}
+
+@media (max-width:775px) {
+    .menu-btn {
+        display: block;
+    }
+
+    .bar {
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 200px;
+        height: 300px;
+        background-color: black;
+        flex-direction: column;
+        padding: 30px;
+        gap: 20px;
+        transition: left 0.3s ease;
+    }
+
+    #menu-toggle:checked~.bar {
+        left: 0;
+    }
+
+
+    .bar div {
+        color: white;
+        cursor: pointer;
+    }
+
+    .intro5 input[type=text] {
+        width: 80px;
+    }
+
+
+}
