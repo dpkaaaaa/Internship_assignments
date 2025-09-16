@@ -1,0 +1,75 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#toggle {
+    display: none;  /* hide checkbox */
+}
+
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 200px;
+    background: #656363;
+    color: white;
+    padding-top: 20px;
+    transition: width 0.3s;
+    overflow: hidden;
+}
+
+/* collapse sidebar when checked */
+#toggle:checked~.sidebar {
+    width: 40px;
+    
+}
+
+
+.menu-btn {
+    font-size: 24px;
+    color: white;
+    padding: 10px;
+    display: block;
+    cursor: pointer;
+}
+
+
+.links {
+    padding: 0;
+    margin: 20px 0 0 0;
+    transition: opacity 0.3s;
+}
+
+/* hide links(home,about,..) when collapsed */
+#toggle:checked~.sidebar .links {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+
+.links li a {
+    display: block;
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;    /*remove underline*/
+}
+
+.links li a:hover {
+    background: black;
+}
+
+
+.content {
+    margin-left: 200px;
+    padding: 20px;
+    transition: margin-left 0.3s;
+}
+
+
+#toggle:checked~.sidebar+.content {
+    margin-left: 50px;
+}
