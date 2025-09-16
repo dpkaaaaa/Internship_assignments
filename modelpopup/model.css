@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  padding: 2rem;
+  
+}
+
+/* Hide checkbox */
+.modal-toggle {
+  display: none;
+}
+
+/* Open modal button */
+.open-btn {
+  display: inline-block;
+  padding: 8px 12px;
+  background: grey;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.open-btn:hover {
+  background-color: lightseagreen;
+}
+
+.modal {
+  position: fixed;
+  top:0; 
+  right:0; 
+  bottom:0; 
+  left:0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+
+.modal-content {
+  background: white;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  text-align: center;
+  transform: translateY(10px);
+  transition: transform 0.2s ease;
+  width: 300px;
+}
+
+
+.modal-toggle:checked ~ .modal {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-toggle:checked ~ .modal .modal-content {
+  transform: translateY(0);
+}
+
+
+.cancel-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 6px 10px;
+  background: #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  background-color: lightseagreen;
+}
