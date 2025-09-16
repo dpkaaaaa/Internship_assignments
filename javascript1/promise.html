@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Promise with Delay</h1>
+
+<p id="demo"></p>
+
+<script>
+function showMessage(message) {
+  document.getElementById("demo").innerHTML = message;
+}
+
+// using delay function
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// Promise 
+let myPromise = new Promise(async function(resolve, reject) {
+  let isSuccess = true;  
+
+  // 3sec delay
+  await delay(3000);
+
+  if (isSuccess) {
+    resolve("Promise Resolved: Task completed successfully after delay.");
+  } else {
+    reject("Promise Rejected: An error occurred after delay.");
+  }
+});
+
+myPromise
+  .then(function(result) {
+    showMessage(result);
+  })
+  .catch(function(error) {
+    showMessage(error);
+  });
+</script>
+
+</body>
+</html>
