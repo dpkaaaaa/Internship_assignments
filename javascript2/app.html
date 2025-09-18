@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User List (CRUD with LocalStorage)</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+  <h2>User List</h2>
+
+  <div class="input-container">
+    <div>
+      <input type="text" id="nameInput" placeholder="Enter username">
+      <p class="error" id="nameError"></p>
+    </div>
+
+    <div>
+      <input type="number" id="ageInput" placeholder="Enter age">
+      <p class="error" id="ageError"></p>
+    </div>
+
+    <div>
+      <input type="email" id="emailInput" placeholder="Enter your email">
+      <p class="error" id="emailError"></p>
+    </div>
+
+    <button id="addBtn">Add</button>
+  </div>
+ 
+  <!-- for delete confirmation popup -->
+  <div id="deleteModal" class="modal">
+  <div class="modal-content">
+    <p id="modalText">Are you sure you want to delete?</p>
+    <button id="confirmDelete">Yes</button>
+    <button id="cancelDelete">No</button>
+  </div>
+</div>
+
+  <table id="userTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+
+  <script src="app.js"></script>
+</body>
+</html>
