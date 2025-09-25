@@ -39,7 +39,7 @@ function stopAutoSlide() {
 nextBtn.addEventListener("click", () => { nextSlide(); stopAutoSlide(); startAutoSlide(); });
 prevBtn.addEventListener("click", () => { prevSlide(); stopAutoSlide(); startAutoSlide(); });
 
-// Drag function 
+// drag function 
 const slider = document.querySelector(".slider");
 
 slider.addEventListener("mousedown", (e) => {
