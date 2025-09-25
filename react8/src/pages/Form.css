@@ -1,0 +1,92 @@
+/* Form Container */
+.form-container {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 25px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Heading */
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* Input groups: label + input in one line */
+.input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+/* Label styling */
+.input-group label {
+  width: 120px; /* fixed width for labels */
+  margin-right: 10px;
+  font-weight: 500;
+}
+
+/* Input styling */
+.input-group input[type="text"],
+.input-group input[type="email"],
+.input-group input[type="password"] {
+  flex: 1;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Error messages below input */
+.input-group .error {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 3px;
+  width: 100%;
+  margin-left: 130px; /* align with input */
+}
+
+/* Radio group in one line */
+.radio-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.radio-group label {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+/* Checkbox */
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.checkbox-group label {
+  cursor: pointer;
+ 
+}
+
+/* Submit Button */
+.form-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.form-container button:hover {
+  background-color: #0056b3;
+}
