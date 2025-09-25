@@ -1,0 +1,40 @@
+.table-wrap {
+  max-width: 900px;
+  margin: 10px auto;
+}
+
+.posts-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.posts-table th,
+.posts-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  vertical-align: top;
+}
+
+.posts-table th {
+  background: #f4f4f4;
+  text-align: left;
+}
+
+.posts-table tr:nth-child(even) {
+  background: #fbfbfb;
+}
+
+.posts-table tr:hover {
+  background: #f1f9ff;
+}
+
+.msg {
+  text-align: center;
+  margin-top: 20px;
+  color: #333;
+}
+
+.msg.error {
+  color: #b00020;
+}
