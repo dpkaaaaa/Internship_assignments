@@ -1,0 +1,23 @@
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+.input-container label {
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #333;
+}
+
+.input-container input {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.input-container input:focus {
+  outline: none;
+  border-color: #007bff;
+}
