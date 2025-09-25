@@ -1,4 +1,5 @@
-const slides = document.querySelectorAll(".slides img");
+const slides = document.querySelectorAll(".slides img"); 
+const slidesContainer = document.querySelector(".slides");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 
@@ -7,18 +8,19 @@ let autoSlideInterval;
 let startX = 0;
 let isDragging = false;
 
-// Show slide
+// Update slide position 
 function showSlide(i) {
-  slides.forEach(slide => slide.classList.remove("active"));
-  slides[i].classList.add("active");
+  const sliderWidth = slides[0].clientWidth;
+  slidesContainer.style.transform = `translateX(-${i * sliderWidth}px)`;
+  index = i;
 }
 
-// Next/Prev slide
+// Next slide
 function nextSlide() {
   index = (index + 1) % slides.length;
   showSlide(index);
 }
-
+// previous slide
 function prevSlide() {
   index = (index - 1 + slides.length) % slides.length;
   showSlide(index);
@@ -33,11 +35,11 @@ function stopAutoSlide() {
   clearInterval(autoSlideInterval);
 }
 
-// Buttons
+// Button listeners
 nextBtn.addEventListener("click", () => { nextSlide(); stopAutoSlide(); startAutoSlide(); });
 prevBtn.addEventListener("click", () => { prevSlide(); stopAutoSlide(); startAutoSlide(); });
 
-
+// Drag function 
 const slider = document.querySelector(".slider");
 
 slider.addEventListener("mousedown", (e) => {
@@ -46,18 +48,25 @@ slider.addEventListener("mousedown", (e) => {
   stopAutoSlide();
 });
 
+document.addEventListener("mousemove", (e) => {
+  if (!isDragging) return;
+  e.preventDefault();
+  const currentX = e.clientX;
+  
+});
+
 document.addEventListener("mouseup", (e) => {
   if (!isDragging) return;
   isDragging = false;
   const endX = e.clientX;
   const diff = startX - endX;
 
-  if (diff > 50) nextSlide();       // drag left 
-  else if (diff < -50) prevSlide(); // drag right
+  if (diff > 50) nextSlide();       // dragged left
+  else if (diff < -50) prevSlide(); // dragged right
 
   startAutoSlide();
 });
 
-// initially shows first slide
+// Initially shows first slide
 showSlide(index);
 startAutoSlide();
