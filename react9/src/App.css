@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  background-color: #f4f4f4;
+}
+
+
+.app {
+  height: 100vh; 
+  width: 100vw;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  background-color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+
+h1 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+
+.tabs-container {
+  width: 80%;
+  max-width: 800px;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  background-color: #fafafa;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+.tab-headers {
+  display: flex;
+  justify-content: space-around;
+  background-color: #fff;
+  border-bottom: 2px solid #ddd;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+
+.tab-button {
+  flex: 1;
+  padding: 15px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+  background-color: #f0f0f0;
+}
+
+.tab-button.active {
+  border-bottom: 3px solid #6a4caf;
+  color: #6a4caf;
+  font-weight: bold;
+}
+
+
+.tab-content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tab-panel {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.hidden {
+  display: none;
+}
