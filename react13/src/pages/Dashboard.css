@@ -1,0 +1,26 @@
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  width: 1000px;
+}
+
+
+.dashboard-container > *:first-child {
+  width: 220px; 
+  flex-shrink: 0;
+}
+
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100vh;
+}
+
+
+.page-content {
+  flex-grow: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
