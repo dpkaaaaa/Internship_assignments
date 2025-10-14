@@ -1,64 +1,24 @@
-import { useLocation, useNavigate } from "react-router"
-import './Sidebar.css'
+
+import { Link } from "react-router-dom";
 
 function Sidebar() {
-  const navigate = useNavigate();
-  const location = useLocation();
   return (
-    <div className="sidebar">
-      <h2 className="logo">AdminPanel</h2>
-      <ul>
-        <li
-          className={location.pathname === "/dashboard" ? "active" : ""}
-          onClick={() => navigate("/dashboard")}
-        >
-          Dashboard
-        </li>
-        <li
-          className={location.pathname === "/orders" ? "active" : ""}
-          onClick={() => navigate("/orders")}
-        >
-          Orders
-        </li>
-        <li
-          className={location.pathname === "/menu" ? "active" : ""}
-          onClick={() => navigate("/menu")}
-        >
-          Menu
-        </li>
-        <li
-          className={location.pathname === "/customers" ? "active" : ""}
-          onClick={() => navigate("/customers")}
-        >
-          Customers
-        </li>
-        <li
-          className={location.pathname === "/reservations" ? "active" : ""}
-          onClick={() => navigate("/reservations")}
-        >
-          Reservations
-        </li>
-        <li
-          className={location.pathname === "/staff" ? "active" : ""}
-          onClick={() => navigate("/staff")}
-        >
-          Staff
-        </li>
-        <li
-          className={location.pathname === "/analytics" ? "active" : ""}
-          onClick={() => navigate("/analytics")}
-        >
-          Analytics
-        </li>
-        <li
-          className={location.pathname === "/settings" ? "active" : ""}
-          onClick={() => navigate("/settings")}
-        >
-          Settings
-        </li>
-      </ul>
-    </div>
-  )
+    <aside className="sidebar">
+      <h2 className="logo">Restaurant</h2>
+      <nav>
+        <ul>
+          <li><Link to="/">Dashboard</Link></li>
+          <li><Link to="/orders">Orders</Link></li>
+          <li><Link to="/menu">Menu</Link></li>
+          <li><Link to="/reservations">Reservations</Link></li>
+          <li><Link to="/customers">Customers</Link></li>
+          <li><Link to="/staff">Staff</Link></li>
+          <li><Link to="/analytics">Analytics</Link></li>
+          <li><Link to="/settings">Settings</Link></li>
+        </ul>
+      </nav>
+    </aside>
+  );
 }
 
-export default Sidebar
+export default Sidebar;

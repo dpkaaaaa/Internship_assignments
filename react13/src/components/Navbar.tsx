@@ -1,24 +1,30 @@
+
 import { useNavigate } from "react-router-dom";
-import './Navbar.css'
-
+import profilePic from "../assets/user.jpg";
 function Navbar() {
-  const navigagte = useNavigate();
-  const username = localStorage.getItem("username") || "User";
-  const handleLogout = () => {
-    localStorage.removeItem("username");
-    navigagte("/");
-  }
-  return (
+  const navigate = useNavigate();
 
-    <header className="navbar">
-      <h2>Resturant</h2>
-      <div className="user-section">
-        <span className="user">{username}</span>
-        <button onClick={handleLogout}>Logout</button>
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("username");
+    navigate("/login");
+  };
+
+  const username = localStorage.getItem("username") || "Admin";
+
+  return (
+    <header className="header">
+      <input type="text" placeholder="Search..." className="search-box" />
+      <div className="user-profile">
+        <img
+          src={profilePic}
+          alt={`${username}'s profile`}
+          className="profile-pic"
+        />
+        <button className="logout-btn" onClick={handleLogout}>Logout</button>
       </div>
     </header>
-
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

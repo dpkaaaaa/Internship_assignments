@@ -1,32 +1,67 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Login from "../pages/Login";
+import  { type ReactElement } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import Sidebar from "../components/Sidebar";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import Dashboard from "../pages/Dashboard";
-import Menu from "../pages/Menu";
 import Orders from "../pages/Orders";
-import Customers from "../pages/Customers";
+import Menu from "../pages/Menu";
 import Reservations from "../pages/Reservations";
+import Customers from "../pages/Customers";
 import Staff from "../pages/Staff";
 import Analytics from "../pages/Analytics";
 import Settings from "../pages/Settings";
+import Login from "../pages/Login";
+import NotFoundPage from "../pages/NotFoundPage";
+
+// Define props interface for ProtectedRoute
+interface ProtectedRouteProps {
+  element: ReactElement;
+}
+
+
+function ProtectedRoute({ element }: ProtectedRouteProps) {
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  return isLoggedIn ? element : <Navigate to="/login" replace />;
+}
 
 function AppRouter() {
-  const isLoggedIn = !!localStorage.getItem("username");
-
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={isLoggedIn ? <Navigate to="/dashboard" /> : <Login />} />
-        <Route path="/dashboard" element={isLoggedIn ? <Dashboard /> : <Navigate to="/" />} />
-        <Route path="/orders" element={isLoggedIn ? <Orders /> : <Navigate to="/" />} />
-        <Route path="/menu" element={isLoggedIn ? <Menu /> : <Navigate to="/" />} />
-        <Route path="/customers" element={isLoggedIn ? <Customers /> : <Navigate to="/" />} />
-        <Route path="/reservations" element={isLoggedIn ? <Reservations /> : <Navigate to="/" />} />
-        <Route path="/staff" element={isLoggedIn ? <Staff /> : <Navigate to="/" />} />
-        <Route path="/analytics" element={isLoggedIn ? <Analytics /> : <Navigate to="/" />} />
-        <Route path="/settings" element={isLoggedIn ? <Settings /> : <Navigate to="/" />} />
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      {/* Public Route */}
+      <Route path="/login" element={<Login />} />
+      
+      {/* Protected Route */}
+      <Route
+        path="/*"
+        element={
+          <ProtectedRoute
+            element={
+              <div className="dashboard-container">
+                <Sidebar />
+                <div className="main-section">
+                  <Navbar />
+                  <main className="main-content">
+                    <Routes>
+                      <Route path="/" element={<Dashboard />} />
+                      <Route path="/orders" element={<Orders />} />
+                      <Route path="/menu" element={<Menu />} />
+                      <Route path="/reservations" element={<Reservations />} />
+                      <Route path="/customers" element={<Customers />} />
+                      <Route path="/staff" element={<Staff />} />
+                      <Route path="/analytics" element={<Analytics />} />
+                      <Route path="/settings" element={<Settings />} />
+                      <Route path="*" element={<NotFoundPage />} />
+                    </Routes>
+                  </main>
+                  <Footer />
+                </div>
+              </div>
+            }
+          />
+        }
+      />
+    </Routes>
   );
 }
 

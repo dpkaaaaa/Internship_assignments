@@ -1,21 +1,7 @@
-import Footer from "../components/Footer"
-import Navbar from "../components/Navbar"
-import Sidebar from "../components/Sidebar"
 
 
-function Menu   ()  {
-  return (
-        <div>
-            <Sidebar />
-            <div>
-                <Navbar />
-                <div>
-                    <h1> This is Menu page  .</h1>
-                </div>
-                <Footer />
-            </div>
-        </div>
-    )
+function Menu() {
+  return <div className="content">This is Menu Page</div>;
 }
 
-export default Menu 
+export default Menu;

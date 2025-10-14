@@ -1,21 +1,6 @@
-import Footer from "../components/Footer"
-import Navbar from "../components/Navbar"
-import Sidebar from "../components/Sidebar"
-
 
 function Orders   ()  {
-  return (
-        <div>
-            <Sidebar />
-            <div>
-                <Navbar />
-                <div>
-                    <h1> This is Orders page  .</h1>
-                </div>
-                <Footer />
-            </div>
-        </div>
-    )
+  return <div className="content">This is Orders Page</div>;
 }
 
 export default Orders 
