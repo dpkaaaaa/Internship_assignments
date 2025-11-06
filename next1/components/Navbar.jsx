@@ -10,6 +10,7 @@ const Navbar = () => {
         <Link href='/about'>About</Link>
         <Link href='/product'>Product</Link>
         <Link href='/contact'>Contact</Link>
+         <Link href='/courses'>Courses</Link>    {/*dynamic route banako*/}
       </div>
     </div>
   )
